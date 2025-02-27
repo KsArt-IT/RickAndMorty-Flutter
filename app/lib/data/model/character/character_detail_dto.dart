@@ -30,22 +30,20 @@ final class CharacterDetailDto {
     required this.url,
   });
 
-  static CharacterDetailDto fromJson(data) {
-    return CharacterDetailDto(
-      id: data['id'],
-      name: data['name'],
-      image: data['image'],
-      created: data['created'],
-      episode: data['episode'],
-      gender: data['gender'],
-      location: CharacterLocationDto.fromJson(data['location']),
-      origin: CharacterOriginDto.fromJson(data['origin']),
-      species: data['species'],
-      status: data['status'],
-      type: data['type'],
-      url: data['url'],
-    );
-  }
+  factory CharacterDetailDto.fromJson(data) => CharacterDetailDto(
+    id: data['id'],
+    name: data['name'],
+    image: data['image'],
+    created: data['created'],
+    episode: data['episode'],
+    gender: data['gender'],
+    location: CharacterLocationDto.fromJson(data['location']),
+    origin: CharacterOriginDto.fromJson(data['origin']),
+    species: data['species'],
+    status: data['status'],
+    type: data['type'],
+    url: data['url'],
+  );
 
   CharacterDetail toEntity() {
     return CharacterDetail(
