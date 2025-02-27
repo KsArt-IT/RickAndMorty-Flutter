@@ -26,20 +26,18 @@ final class CharacterDto {
     required this.created,
   });
 
-  static CharacterDto fromJson(e) {
-    return CharacterDto(
-      id: e['id'],
-      name: e['name'],
-      status: e['status'],
-      species: e['species'],
-      type: e['type'],
-      gender: e['gender'],
-      location: CharacterLocationDto.fromJson(e['location']),
-      image: e['image'],
-      url: e['url'],
-      created: e['created'],
-    );
-  }
+  factory CharacterDto.fromJson(e) => CharacterDto(
+    id: e['id'],
+    name: e['name'],
+    status: e['status'],
+    species: e['species'],
+    type: e['type'],
+    gender: e['gender'],
+    location: CharacterLocationDto.fromJson(e['location']),
+    image: e['image'],
+    url: e['url'],
+    created: e['created'],
+  );
 
   Character toEntity() {
     return Character(
