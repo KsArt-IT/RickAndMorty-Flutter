@@ -4,10 +4,5 @@ final class CharacterLocationDto {
 
   CharacterLocationDto({required this.name, required this.url});
 
-  static CharacterLocationDto fromJson(data) {
-    return CharacterLocationDto(
-      name: data['name'],
-      url: data['url'],
-    );
-  }
+  factory CharacterLocationDto.fromJson(data) => CharacterLocationDto(name: data['name'], url: data['url']);
 }
