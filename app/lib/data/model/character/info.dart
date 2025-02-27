@@ -6,12 +6,6 @@ final class Info {
 
   Info({required this.count, required this.pages, required this.next, required this.prev});
 
-  static Info fromJson(data) {
-    return Info(
-      count: data['count'],
-      pages: data['pages'],
-      next: data['next'],
-      prev: data['prev'],
-    );
-  }
+  factory Info.fromJson(data) =>
+      Info(count: data['count'] ?? 0, pages: data['pages'] ?? 0, next: data['next'] ?? '', prev: data['prev'] ?? '');
 }
