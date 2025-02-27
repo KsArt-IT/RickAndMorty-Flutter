@@ -8,12 +8,9 @@ final class CharacterResponse {
 
   CharacterResponse({required this.error, required this.info, required this.results});
 
-  static CharacterResponse fromJson(data) {
-    return CharacterResponse(
-      error: data['error'],
-      info: Info.fromJson(data['info']),
-      results: data['results'].map((e) => CharacterDto.fromJson(e)).toList(),
-    );
-  }
+  factory CharacterResponse.fromJson(data) => CharacterResponse(
+    error: data['error'],
+    info: Info.fromJson(data['info']),
+    results: data['results'].map((e) => CharacterDto.fromJson(e)).toList<CharacterDto>(growable: false),
+  );
 }
-
