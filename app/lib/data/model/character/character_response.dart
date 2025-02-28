@@ -11,6 +11,6 @@ final class CharacterResponse {
   factory CharacterResponse.fromJson(data) => CharacterResponse(
     error: data['error'],
     info: Info.fromJson(data['info']),
-    results: data['results'].map((e) => CharacterDto.fromJson(e)).toList<CharacterDto>(growable: false),
+    results: (data['results'] as List<dynamic>).map((e) => CharacterDto.fromJson(e)).cast<CharacterDto>().toList(),
   );
 }
