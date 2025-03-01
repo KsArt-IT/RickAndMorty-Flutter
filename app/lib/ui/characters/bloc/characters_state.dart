@@ -7,18 +7,20 @@ final class CharactersInitial extends CharactersState {
   List<Object?> get props => [];
 }
 
-final class CharactersLoading extends CharactersState {
-  @override
-  List<Object?> get props => [];
-}
+// final class CharactersLoading extends CharactersState {
+//   @override
+//   List<Object?> get props => [];
+// }
 
 final class CharactersLoaded extends CharactersState {
   final List<Character> characters;
+  final bool hasReachedEnd;
+  final bool isLoadingMore;
 
-  CharactersLoaded({required this.characters});
+  CharactersLoaded({required this.characters, required this.hasReachedEnd, this.isLoadingMore = false});
 
   @override
-  List<Object?> get props => [characters];
+  List<Object?> get props => [characters, hasReachedEnd, isLoadingMore];
 }
 
 final class CharactersError extends CharactersState {
@@ -29,4 +31,3 @@ final class CharactersError extends CharactersState {
   @override
   List<Object?> get props => [message];
 }
-
