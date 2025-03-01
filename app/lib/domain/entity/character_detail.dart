@@ -16,7 +16,7 @@ final class CharacterDetail extends Equatable {
   final String created;
   final List<String> episode;
 
-  CharacterDetail({
+  const CharacterDetail({
     required this.id,
     required this.name,
     required this.status,
