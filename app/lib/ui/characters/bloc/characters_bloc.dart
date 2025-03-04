@@ -15,7 +15,7 @@ final class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   int _page = 1;
   bool _hasReachedEnd = false;
   bool _isLoad = false;
-  List<Character> _characters = [];
+  final List<Character> _characters = [];
 
   CharactersBloc({required CharacterRepository characterRepository})
     : _characterRepository = characterRepository,
