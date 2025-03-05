@@ -9,13 +9,10 @@ part 'character_detail_state.dart';
 final class CharacterDetailBloc
     extends Bloc<CharacterDetailEvent, CharacterDetailState> {
   final CharacterRepository _characterRepository;
-  final int id;
 
-  CharacterDetailBloc({
-    required CharacterRepository characterRepository,
-    required this.id,
-  }) : _characterRepository = characterRepository,
-       super(CharacterDetailLoading()) {
+  CharacterDetailBloc({required CharacterRepository characterRepository})
+    : _characterRepository = characterRepository,
+      super(CharacterDetailLoading()) {
     on<CharacterDetailFetch>(_onCharacterDetailFetch);
   }
 
@@ -25,7 +22,7 @@ final class CharacterDetailBloc
   ) async {
     try {
       emit(CharacterDetailLoading());
-      final result = await _characterRepository.fetchCharacterDetail(id);
+      final result = await _characterRepository.fetchCharacterDetail(event.id);
 
       switch (result) {
         case Success(value: final value):
