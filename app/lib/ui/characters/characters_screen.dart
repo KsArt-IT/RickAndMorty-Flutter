@@ -6,6 +6,7 @@ import 'package:rick_and_morty/di/service_locator.dart';
 import 'package:rick_and_morty/domain/entity/entity.dart';
 import 'package:rick_and_morty/ui/characters/bloc/characters_bloc.dart';
 import 'package:rick_and_morty/ui/characters/widgets/character_list_item.dart';
+import 'package:rick_and_morty/ui/router/router.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key, required this.title});
@@ -72,7 +73,10 @@ class _CharactersScreenState extends State<CharactersScreen> {
           }
           return _buildLoadingIndicator();
         }
-        return CharacterListItem(character: characters[index]);
+        return CharacterListItem(
+          character: characters[index],
+          onTap: () => AppRoute.navigateTo(context, AppRoute.characterDetail, id: characters[index].id),
+        );
       },
     );
   }
