@@ -35,7 +35,7 @@ final class CharacterDetailDto {
     name: data['name'],
     image: data['image'],
     created: data['created'],
-    episode: data['episode'],
+    episode: (data['episode'] as List<dynamic>).cast<String>(),
     gender: data['gender'],
     location: CharacterLocationDto.fromJson(data['location']),
     origin: CharacterOriginDto.fromJson(data['origin']),
