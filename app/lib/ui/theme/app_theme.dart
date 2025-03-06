@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final class AppTheme {
+sealed class AppTheme {
   static final lightTheme = ThemeData.light(useMaterial3: true).copyWith(
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.indigo[300]
@@ -12,6 +12,4 @@ final class AppTheme {
       backgroundColor: Colors.indigo[900],
     ),
   );
-
-  AppTheme._();
 }
