@@ -4,6 +4,7 @@ import 'package:rick_and_morty/di/service_locator.dart';
 import 'package:rick_and_morty/domain/entity/character_detail.dart';
 import 'package:rick_and_morty/ui/character_detail/bloc/character_detail_bloc.dart';
 import 'package:rick_and_morty/ui/router/router.dart';
+import 'package:rick_and_morty/ui/theme/app_constants.dart';
 
 @immutable
 class CharacterDetailScreen extends StatefulWidget {
@@ -61,22 +62,48 @@ class _CharacterDetailScreen extends State<CharacterDetailScreen> {
   Widget _buildCharacter(CharacterDetail character) {
     widget.title = character.name;
 
-    return Center(
-      child: Column(
-        children: [
-          Image.network(character.image),
-          Text(character.name),
-          Text(character.status),
-          Text(character.species),
-          Text(character.type),
-          Text(character.gender),
-          Text(character.locationName),
-          Text(character.locationUrl),
-          Text(character.originName),
-          Text(character.originUrl),
-          Text(character.url),
-          Text(character.created),
-        ],
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(Dimens.medium),
+      child: Center(
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: Sizes.borderRadius,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey[300]!,
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              padding: const EdgeInsets.all(Dimens.small),
+              margin: const EdgeInsets.only(bottom: Dimens.medium),
+              width: Sizes.image,
+              height: Sizes.image,
+              child: Image.network(character.image, fit: BoxFit.cover),
+            ),
+            Text(
+              character.name,
+              style: TextStyle(
+                fontSize: Sizes.titleSize,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Text(character.status),
+            Text(character.species),
+            Text(character.type),
+            Text(character.gender),
+            Text(character.locationName),
+            Text(character.locationUrl),
+            Text(character.originName),
+            Text(character.originUrl),
+            Text(character.url),
+            Text(character.created),
+          ],
+        ),
       ),
     );
   }
