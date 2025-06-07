@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rick_and_morty/domain/entity/entity.dart';
+import 'package:rick_and_morty/domain/entity.dart';
 import 'package:rick_and_morty/domain/entity/result.dart';
 import 'package:rick_and_morty/domain/repository/character_repository.dart';
 
