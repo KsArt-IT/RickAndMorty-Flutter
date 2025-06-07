@@ -1,5 +1,4 @@
-import 'package:rick_and_morty/data/model/models.dart';
-import 'package:rick_and_morty/domain/entity/character.dart';
+import 'package:rick_and_morty/data/models.dart';
 
 final class CharacterDto {
   final int id;
@@ -38,20 +37,4 @@ final class CharacterDto {
     url: e['url'],
     created: e['created'],
   );
-
-  Character toEntity() {
-    return Character(
-      id: id,
-      name: name,
-      status: status,
-      species: species,
-      type: type,
-      gender: gender,
-      locationName: location.name,
-      locationUrl: location.url,
-      image: image,
-      url: url,
-      created: created,
-    );
-  }
 }
