@@ -1,12 +1,13 @@
 import 'package:equatable/equatable.dart';
+import 'package:rick_and_morty/domain/entity.dart';
 
 final class Character extends Equatable {
   final int id;
   final String name;
-  final String status;
-  final String species;
+  final CharacterStatus status;
+  final CharacterSpecies species;
   final String type;
-  final String gender;
+  final CharacterGender gender;
   final String locationName;
   final String locationUrl;
   final String image;
