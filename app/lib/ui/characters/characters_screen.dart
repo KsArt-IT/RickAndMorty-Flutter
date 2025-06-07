@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty/di/service_locator.dart';
-import 'package:rick_and_morty/domain/entity/entity.dart';
+import 'package:rick_and_morty/domain/entity.dart';
 import 'package:rick_and_morty/ui/characters/bloc/characters_bloc.dart';
 import 'package:rick_and_morty/ui/characters/widgets/character_list_item.dart';
 import 'package:rick_and_morty/ui/router/router.dart';
