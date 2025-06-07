@@ -1,4 +1,4 @@
-import 'package:rick_and_morty/domain/entity/entity.dart';
+import 'package:rick_and_morty/domain/entity.dart';
 import 'package:rick_and_morty/domain/entity/result.dart';
 
 abstract interface class CharacterRepository {
