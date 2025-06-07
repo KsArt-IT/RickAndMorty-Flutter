@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty/data/model/character/character_response.dart';
-import 'package:rick_and_morty/data/model/models.dart';
+import 'package:rick_and_morty/data/models.dart';
 import 'package:rick_and_morty/data/service/charecter_service.dart';
 import 'package:rick_and_morty/domain/entity/result.dart';
 
@@ -65,14 +65,18 @@ final class CharacterServiceImpl implements CharacterService {
       debugPrint('CharacterServiceImpl::_parseResponse: Ok');
       return Result.success(result);
     } catch (e) {
-      debugPrint('CharacterServiceImpl::_parseResponse: JSON parsing error: $e');
+      debugPrint(
+        'CharacterServiceImpl::_parseResponse: JSON parsing error: $e',
+      );
       return Result.failure(Exception('Failed to parse data: $e'));
     }
   }
 
   String? _checkStatusError({required Response response}) {
     if (response.statusCode != 200) {
-      debugPrint('CharacterServiceImpl::_parseResponse: Error status code: ${response.statusCode}');
+      debugPrint(
+        'CharacterServiceImpl::_parseResponse: Error status code: ${response.statusCode}',
+      );
       return 'Server returned ${response.statusCode}';
     }
 
