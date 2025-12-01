@@ -5,24 +5,43 @@ publish_to: 'none'
 version: 1.1.0
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.10.1
+  flutter: ^3.38.3
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+
+  # State Management
   flutter_bloc: ^9.1.1
-  equatable: ^2.0.7
-  dio: ^5.8.0+1
-  get_it: ^8.0.3
+  # Navigation
+  go_router: ^17.0.0
+  # Networking
+  dio: ^5.9.0
+  retrofit: ^4.9.1
+  # Dependency Injection
+  get_it: ^9.1.1
+  injectable: ^2.7.0
+  # Freezed
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.14.3
+  flutter_launcher_icons: ^0.14.4
 
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
+  # Build runner
+  build_runner: ^2.10.4
+  # Freezed
+  freezed: ^3.2.3
+  json_serializable: ^6.11.1
+  retrofit_generator: ^10.2.0
+  # Dependency Injection
+  injectable_generator: ^2.9.1
 
 flutter_launcher_icons:
   #  image_path: "assets/images/icon-128x128.png"
