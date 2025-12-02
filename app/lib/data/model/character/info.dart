@@ -6,10 +6,10 @@ final class Info {
 
   Info({required this.count, required this.pages, required this.next, required this.prev});
 
-  factory Info.fromJson(data) => Info(
+  factory Info.fromJson(Map<String, dynamic> data) => Info(
     count: data['count'] ?? 0,
-    pages: data['pages'] ?? 0, 
-    next: data['next'] ?? '', 
+    pages: data['pages'] ?? 0,
+    next: data['next'] ?? '',
     prev: data['prev'] ?? '',
   );
 }
