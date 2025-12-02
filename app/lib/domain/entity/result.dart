@@ -1,3 +1,8 @@
+Result<R> success<R>(R value) => Result.success(value);
+Result<R> failure<R>(Exception error) => Result.failure(error);
+
+/// A class that represents the result of an operation, which can be either
+/// a success or a failure.
 sealed class Result<T> {
   const Result();
 
@@ -5,7 +10,41 @@ sealed class Result<T> {
   const factory Result.success(T value) = Success<T>._;
 
   /// Creates an error [Result], completed with the specified [error].
-  const factory Result.failure(Exception error) = Failure._;
+  const factory Result.failure(Exception error) = Failure<T>._;
+
+  /// Converts the result to another type.
+  R map<R>({
+    required R Function(T value) success,
+    required R Function(Exception error) failure,
+  }) => switch (this) {
+    Success(:final value) => success(value),
+    Failure(:final error) => failure(error),
+  };
+
+  R match<R>({
+    required R Function(T value) success,
+    required R Function(Exception error) failure,
+  }) => map(success: success, failure: failure);
+
+  R fold<R>({
+    required R Function(T value) success,
+    required R Function(Exception error) failure,
+  }) => map(success: success, failure: failure);
+
+  bool get isSuccess => this is Success<T>;
+  bool get isFailure => this is Failure<T>;
+
+  /// Returns the value if the result is successful, otherwise returns null.
+  T? get valueOrNull => switch (this) {
+    Success(:final value) => value,
+    Failure() => null,
+  };
+
+  /// Returns the error if the result is unsuccessful, otherwise returns null.
+  Exception? get errorOrNull => switch (this) {
+    Success() => null,
+    Failure(:final error) => error,
+  };
 }
 
 /// Subclass of Result for values
