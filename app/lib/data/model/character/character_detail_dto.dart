@@ -29,7 +29,7 @@ final class CharacterDetailDto {
     required this.url,
   });
 
-  factory CharacterDetailDto.fromJson(data) => CharacterDetailDto(
+  factory CharacterDetailDto.fromJson(Map<String, dynamic>data) => CharacterDetailDto(
     id: data['id'],
     name: data['name'],
     image: data['image'],
