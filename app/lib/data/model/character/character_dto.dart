@@ -25,16 +25,16 @@ final class CharacterDto {
     required this.created,
   });
 
-  factory CharacterDto.fromJson(e) => CharacterDto(
-    id: e['id'],
-    name: e['name'],
-    status: e['status'],
-    species: e['species'],
-    type: e['type'],
-    gender: e['gender'],
-    location: CharacterLocationDto.fromJson(e['location']),
-    image: e['image'],
-    url: e['url'],
-    created: e['created'],
+  factory CharacterDto.fromJson(Map<String, dynamic> data) => CharacterDto(
+    id: data['id'],
+    name: data['name'],
+    status: data['status'],
+    species: data['species'],
+    type: data['type'],
+    gender: data['gender'],
+    location: CharacterLocationDto.fromJson(data['location']),
+    image: data['image'],
+    url: data['url'],
+    created: data['created'],
   );
 }
