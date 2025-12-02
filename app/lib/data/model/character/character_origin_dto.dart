@@ -4,5 +4,8 @@ final class CharacterOriginDto {
 
   CharacterOriginDto({required this.name, required this.url});
 
-  factory CharacterOriginDto.fromJson(data) => CharacterOriginDto(name: data['name'], url: data['url']);
+  factory CharacterOriginDto.fromJson(Map<String, dynamic> data) => CharacterOriginDto(
+    name: data['name'],
+    url: data['url'],
+  );
 }
