@@ -1,5 +1,5 @@
-import 'package:rick_and_morty/data/models.dart';
 import 'package:rick_and_morty/data/model/character/info.dart';
+import 'package:rick_and_morty/data/models.dart';
 
 final class CharacterResponse {
   final String? error;
@@ -12,13 +12,12 @@ final class CharacterResponse {
     required this.results,
   });
 
-  factory CharacterResponse.fromJson(data) => CharacterResponse(
+  factory CharacterResponse.fromJson(Map<String, dynamic> data) => CharacterResponse(
     error: data['error'],
     info: Info.fromJson(data['info']),
-    results:
-        (data['results'] as List<dynamic>)
-            .map((e) => CharacterDto.fromJson(e))
-            .cast<CharacterDto>()
-            .toList(),
+    results: (data['results'] as List<dynamic>)
+        .map((e) => CharacterDto.fromJson(e))
+        .cast<CharacterDto>()
+        .toList(),
   );
 }
